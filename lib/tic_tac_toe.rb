@@ -58,5 +58,14 @@ class TicTacToe
     turn
     end
   end
-  
+  def won?
+    WIN_COMBINATIONS.detect do |win|
+      @board[win[0]] == @board[win[1]] && @board[win[1]] == @board[win[2]] && position_taken?(win[0])
+    end
+  end
+  def full?
+    @board.all? do |i|
+      i == "X" || i == "O"
+    end
+  end
 end
