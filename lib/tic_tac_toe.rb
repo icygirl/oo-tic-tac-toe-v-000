@@ -68,4 +68,25 @@ class TicTacToe
       i == "X" || i == "O"
     end
   end
+  def draw?
+    if won?
+      false
+    elsif full?
+      true
+    else
+      false
+    end
+  end
+  def over?
+    if won? || draw? || full?
+      true
+    else
+      false
+    end
+  end
+  def winner
+    if won?
+      @board[won?.first]
+    end
+  end
 end
